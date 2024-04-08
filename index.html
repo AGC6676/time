@@ -34,7 +34,7 @@
     var elem = document.documentElement;
     var timeout;
     var lastTap = 0;
-    elm1.addEventListener('click', function (event) {
+    elm1.addEventListener('touchend', function (event) {
       var currentTime = new Date().getTime();
       var tapLength = currentTime - lastTap;
       clearTimeout(timeout);
