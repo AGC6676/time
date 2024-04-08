@@ -13,7 +13,7 @@ body {
   background-color: #060606;
   line-height: 1;
 
-  user-select: none;
+  /* user-select: none; */
 }
 
 h1 {
