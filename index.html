@@ -8,7 +8,7 @@
   <title>Timer</title>
 </head>
 
-<body>
+<body id="tap">
 
   <div class="scroll">
     <h1 class="text">WELCOME TO NAGA78</h1>
@@ -27,6 +27,30 @@
 
 
   <script>
+
+    // fullscreen
+
+    var elm1 = document.getElementById('tap');
+    var elem = document.documentElement;
+    var timeout;
+    var lastTap = 0;
+    elm1.addEventListener('click', function (event) {
+      var currentTime = new Date().getTime();
+      var tapLength = currentTime - lastTap;
+      clearTimeout(timeout);
+      if (tapLength < 500 && tapLength > 0) {
+        elem.requestFullscreen();
+        event.preventDefault();
+      } else if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+
+      lastTap = currentTime;
+    });
+
+    // =====
+
+
     function updateTime() {
       var now = new Date();
       var date = now.toDateString();
