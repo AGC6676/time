@@ -1,0 +1,77 @@
+@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", system-ui;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  font-size: 16px;
+  background-color: #060606;
+  line-height: 1;
+
+  user-select: none;
+}
+
+h1 {
+  text-align: center;
+  color: #ffea00;
+}
+.scroll {
+  --gap: 6rem;
+  font-size: 6vw;
+  overflow: hidden;
+  display: flex;
+  gap: var(--gap);
+}
+
+.scroll .text {
+  list-style: none;
+  flex-shrink: 0;
+  min-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--gap);
+  animation: scroll 20s linear infinite;
+}
+
+.details{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#date, #time, #phone-number {
+  color: #f2f2f2;
+  text-align: center;
+  font-weight: 600;
+}
+
+#date, #time {
+  font-size: 7.5vw;
+  color: #ff9100;
+}
+
+.tel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#phone-number {
+  font-size: 8vw;
+
+}
+
+@keyframes scroll {
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
