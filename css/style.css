@@ -53,9 +53,13 @@ h1 {
   font-weight: 600;
 }
 
-#date, #time {
+#date {
   font-size: 7.5vw;
   color: #ff9100;
+}
+
+#time {
+  font-size: 7vw;
 }
 
 .tel {
@@ -67,7 +71,7 @@ h1 {
 
 #phone-number {
   font-size: 8vw;
-
+  color: #f2f2f2;
 }
 
 @keyframes scroll {
