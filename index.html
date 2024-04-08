@@ -34,16 +34,34 @@
     var elem = document.documentElement;
     var timeout;
     var lastTap = 0;
-    elm1.addEventListener('touchend', function (event) {
+    elm1.addEventListener('click', function (event) {
       var currentTime = new Date().getTime();
       var tapLength = currentTime - lastTap;
       clearTimeout(timeout);
       if (tapLength < 500 && tapLength > 0) {
         elem.requestFullscreen();
         event.preventDefault();
-      } else if (document.exitFullscreen) {
-        document.exitFullscreen();
       }
+      else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+        event.preventDefault();
+
+      } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+        event.preventDefault();
+
+      }
+      if (tapLength < 500 && tapLength > 0) {
+        document.exitFullscreen();
+        event.preventDefault();
+      }
+      else if (document.webkitExitFullscreen) { /* Safari */
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) { /* IE11 */
+        document.msExitFullscreen();
+      }
+
+
 
       lastTap = currentTime;
     });
